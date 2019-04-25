@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <style>
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .carousel-inner img {
+      width: 100%;
+      /* Set width to 100% */
+      min-height: 200px;
+    }
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+
+<header class="header black-bg">
+  <div class="sidebar-toggle-box">
+    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+  </div>
+
+  <a routerLink="/index" class="logo"><strong>DIY<span>POPUP'S</span></strong></a>
+
+  <div class="top-menu">
+    <ul class="nav pull-right top-menu">
+       <li class="active"> <span  data-toggle="tab" href="#r" aria-selected="true" class=" glyphicon glyphicon-home" style="color: beige;"></span></li>
+      <li> <span data-toggle="tab" href="#profile" aria-selected="false" class="glyphicon glyphicon-user" style="color: beige;"></span></li>
+      <li><a (click)="logout()" class="glyphicon glyphicon-off" style="color: beige;"></a></li>
+    </ul>
+
+  </div>
+</header>
+
+<body >
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+     <div class="container">
+        <div class="row">
+            <div><h3>Earned Credits : </h3>{{this.credits}}</div>
+
+            <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleRechargeCredits"
+          >
+            Recharge Credits
+          </button>
+            
+          <div *ngFor="let advt of advts" class="col-md-4">
+            <button (click)="creditCount(advt.id)" style="cursor: pointer;">
+              <div class="card m-2 bg-secondary text-white">
+                <div class="card-body">Category: {{advt.categoryadd}}</div>
+                <div class="card-footer">
+                  <div>
+                    <h6>Product: {{advt.product}}</h6>
+                  </div>
+                  <div>
+                    <h6>Description: {{advt.description}}</h6>
+                  </div>
+                  <div>
+                    <h6>Date of Publish: {{advt.dop}}</h6>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+   </div>
+
+      <div id="profile" class="tab-pane fade in body">
+        <div class="col-sm-8 col-md-offset-2 text-left" style="margin-top:150px;">
+          <div class="container" >
+            <div class="row">
+              <div class="col-sm-8">
+                <span class="profile-picture" style="display: inline">
+                  <img class="editable img-responsive" alt=" Avatar" id="avatar2"
+                    src="http://bootdey.com/img/Content/avatar/avatar6.png">
+                </span>
+
+                <div class=" col-sm-12 " style="float:left;">
+              
+                   <span class="label label-purple arrowed-in-right">
+                      <em class="ace-icon fa fa-circle smaller-80 align-middle"></em>
+                      online
+                    </span>
+                  
+
+                  <div class="profile-user-info middle">
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Username </div>
+
+                      <div class="profile-info-value">
+                        <span>{{currentUser.firstname}} {{currentUser.lastname}}</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Email </div>
+
+                      <div class="profile-info-value">
+                        <span>{{currentUser.username}}</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Gender </div>
+
+                      <div class="profile-info-value">
+                        <span>{{currentUser.gender}}</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                  <div class="hr hr-8 dotted">
+                  </div>        
+                 </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+  </div>
+    
+  <!-- Modal -->
+
+  <div
+  class="modal fade"
+  id="exampleRechargeCredits"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="recharge">Recharge</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="recharge"
+            placeholder="Enter No. of Credits"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
+
+   
+

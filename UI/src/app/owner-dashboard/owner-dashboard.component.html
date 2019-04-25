@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Owner-Dashboard</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+  integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+  integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<body>
+
+  <header class="header black-bg">
+    <div class="sidebar-toggle-box">
+      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+
+    <a routerLink="/index" class="logo"><strong>DIY<span>POPUP'S</span></strong></a>
+
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li><a class="logout" (click)="logout()">Logout</a></li>
+      </ul>
+
+
+
+    </div>
+  </header>
+
+  <div class="col-sm-6">
+    <h3>Left Tabs - Vertical Text</h3>
+    <hr />
+
+    <div class="col-xs-3">
+      <!-- required for floating -->
+      <!-- Nav tabs -->
+
+      <ul class="nav nav-tabs tabs-left " id="tt">
+        <li><a href="#profile" data-toggle="tab">PROFILE</a></li>
+        <li><a href="#profile" data-toggle="tab">PROFILE</a></li>
+        <li><a href="#addcreate" data-toggle="tab">CREATE ADD</a></li>
+        <li><a href="#viewadd" data-toggle="tab">VIEW ADD</a></li>
+        <li><a href="#credits" data-toggle="tab">CREDITS</a></li>
+
+
+
+      </ul>
+    </div>
+    <div class="col-xs-9">
+      <!-- Tab panes -->
+      <div class="tab-content">
+
+
+        <div id="profile" class="tab-pane fade in body">
+          <div class="col-sm-8 col-md-offset-2 text-left" style="margin-top:150px;">
+            <div class="container" >
+              <div class="row">
+                <div class="col-sm-8">
+                  <span class="profile-picture" style="display: inline">
+                    <img class="editable img-responsive" alt=" Avatar" id="avatar2"
+                      src="http://bootdey.com/img/Content/avatar/avatar6.png">
+                  </span>
+  
+                  <div class=" col-sm-12 " style="float:left;">
+                
+                     <span class="label label-purple arrowed-in-right">
+                        <em class="ace-icon fa fa-circle smaller-80 align-middle"></em>
+                        online
+                      </span>
+                   
+  
+                    <div class="profile-user-info middle">
+                      <div class="profile-info-row">
+                        <div class="profile-info-name"> Username </div>
+  
+                        <div class="profile-info-value">
+                          <span>{{currentUser.firstname}} {{currentUser.lastname}}</span>
+                        </div>
+                      </div>
+  
+                      <div class="profile-info-row">
+                        <div class="profile-info-name"> Email </div>
+  
+                        <div class="profile-info-value">
+                          <span>{{currentUser.username}}</span>
+                        </div>
+                      </div>
+  
+                      <div class="profile-info-row">
+                        <div class="profile-info-name"> Gender </div>
+  
+                        <div class="profile-info-value">
+                          <span>{{currentUser.gender}}</span>
+                        </div>
+                      </div>
+                      
+  
+                    </div>
+                    <div class="hr hr-8 dotted">
+                    </div>        
+                   </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="addcreate">
+
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-md-8 mx-auto">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="h4 text-center">ADVERTISEMENT DETAILS</div>
+                  </div>
+
+                  <div class="card-body">
+
+                    <div class="form-group">
+                      <label for="category">CATEGORY OF ADD</label>
+                      <input type="text" class="form-control" [(ngModel)]="category"
+                        placeholder="Enter Category of Product">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="category">PRODUCT</label>
+                      <input type="text" class="form-control" [(ngModel)]="product"
+                        placeholder="Enter the Name of Product">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dop">DATE OF PUBLISHING</label>
+                      <input type="date" class="form-control" [(ngModel)]="dop">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="description">DESCRIPTION</label>
+                      <textarea class="form-control" [(ngModel)]="desc"
+                        placeholder="Enter Description about the Product" row="10" col="6"></textarea>
+                    </div>
+
+                    <div class="card-footer">
+                      <button class="btn btn-primary" (click)="submitAdvt()">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="viewadd">
+
+
+          <div class="container">
+            <div class="row">
+              <div *ngFor="let advt of myAds" class="col-md-4">
+                  <button (click)="clickCount(advt.id)">
+                <a>
+                  <div class="card m-2 bg-secondary text-white">
+                    <div class="card-body">Category: {{advt.categoryadd}}</div>
+                    <div class="card-footer">
+                      <div>
+                        <h6>Product: {{advt.product}}</h6>
+                      </div>
+                      <div>
+                        <h6>Description: {{advt.description}}</h6>
+                      </div>
+                      <div>
+                        <h6>Date of Publish: {{advt.dop}}</h6>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="tab-pane" id="credits">
+          <h3>Available Credits====></h3>{{this.downcredits}}
+
+          <form action="/action_page.php">
+           
+            Recharge : <br>
+            <input type="text" name="recharge" value="recharge"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+          
+
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+  </div>
+
+  <!-- modal -->
+
+  
+
+
+</body>
+
+</html>
+
+   
+

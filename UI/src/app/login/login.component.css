@@ -1,0 +1,19 @@
+div.container-fluid{
+    margin-top: -3.3%;
+    height: 105vh;
+    background-image: url('../../assets/img/website.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  div.card{
+    opacity: 0.74;
+  }
+  /* a{
+    text-decoration: none;
+  } */
+  a:hover{
+    cursor: pointer;
+  }
+  
